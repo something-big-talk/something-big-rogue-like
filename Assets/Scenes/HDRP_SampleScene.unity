@@ -218,7 +218,7 @@ MonoBehaviour:
     m_SphereRadius: 3
     m_SphereBlendDistance: 0.1
     m_SphereBlendNormalDistance: 0.1
-    m_Version: 0
+    m_Version: 1
     m_ObsoleteSphereBaseOffset: {x: 0, y: 0, z: 0}
   m_FrameSettings:
     overrides: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
     m_SphereRadius: 3
     m_SphereBlendDistance: 0
     m_SphereBlendNormalDistance: 0
-    m_Version: 0
+    m_Version: 1
     m_ObsoleteSphereBaseOffset: {x: 0, y: 0, z: 0}
   m_FrameSettings:
     overrides: 0
@@ -803,7 +803,7 @@ AudioListener:
   m_Enabled: 1
 --- !u!114 &1297650282
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -937,7 +937,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stopNaNPropagation: 1
-  antialiasingMode: 2
+  antialiasingMode: 3
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -1544,7 +1544,7 @@ MonoBehaviour:
     m_SphereRadius: 3
     m_SphereBlendDistance: 0
     m_SphereBlendNormalDistance: 0
-    m_Version: 0
+    m_Version: 1
     m_ObsoleteSphereBaseOffset: {x: 0, y: 0, z: 0}
   m_FrameSettings:
     overrides: 0
