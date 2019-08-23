@@ -5,9 +5,14 @@ using UnityEngine;
 public class JasonTestScript : MonoBehaviour
 {
     public int frameLimit = 60;
+
+    [Header("Player")]
     public CharacterController player;
-    public float playerMoveSpeed = 1;
-    public float playerJumpSpeed = 1;
+    public float moveSpeed = 1;
+    public float jumpSpeed = 1;
+    public float gravityMultiplier = 1;
+    public float airbornSpeedChange = 1;
+
     private Vector3 moveDirection = Vector3.zero;
 
     public void OnEnable()
@@ -31,11 +36,15 @@ public class JasonTestScript : MonoBehaviour
 
         if (player.isGrounded)
         {
-            moveDirection = new Vector3(moveValue * playerMoveSpeed, jumpValue * playerJumpSpeed, 0);
+            moveDirection = new Vector3(moveValue * moveSpeed, jumpValue * jumpSpeed, 0);
+        }
+        else //airborn
+        {
+            moveDirection.x = Mathf.MoveTowards(moveDirection.x, moveValue * moveSpeed, airbornSpeedChange * Time.deltaTime);
         }
 
         //apply gravity, a = dv/dt
-        moveDirection += Physics.gravity * Time.deltaTime;
+        moveDirection += Physics.gravity * gravityMultiplier * Time.deltaTime;
 
         //move
         player.Move(moveDirection * Time.deltaTime);

@@ -551,7 +551,7 @@ MonoBehaviour:
     fastMode: 0
     keepAlpha: 0
   fog:
-    enabled: 1
+    enabled: 0
     excludeSkybox: 1
   debugLayer:
     lightMeter:
@@ -707,8 +707,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameLimit: 30
   player: {fileID: 1823047085}
-  playerMoveSpeed: 10
-  playerJumpSpeed: 10
+  moveSpeed: 10
+  jumpSpeed: 15
+  gravityMultiplier: 2
+  airbornSpeedChange: 20
 --- !u!1 &2011204166
 GameObject:
   m_ObjectHideFlags: 0
