@@ -5,9 +5,10 @@ using UnityEngine;
 public class JasonTestScript : MonoBehaviour
 {
     public int frameLimit = 60;
-    public Rigidbody player;
+    public CharacterController player;
     public float playerMoveSpeed = 1;
     public float playerJumpSpeed = 1;
+    private Vector3 moveDirection = Vector3.zero;
 
     public void OnEnable()
     {
@@ -21,15 +22,22 @@ public class JasonTestScript : MonoBehaviour
 
     private void ProcessInput()
     {
+        //https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
         if (player == null)
             return;
 
         float moveValue = Input.GetAxis("Horizontal");
-        float jumpValue = Input.GetKeyDown(KeyCode.Space) ? 1 : 0;
-        Vector3 velocity = player.velocity;
-        velocity.x = moveValue * playerMoveSpeed;
-        if (jumpValue != 0)
-            velocity.y = jumpValue * playerJumpSpeed;
-        player.velocity = velocity;
+        float jumpValue = Input.GetButtonDown("Jump") ? 1 : 0;
+
+        if (player.isGrounded)
+        {
+            moveDirection = new Vector3(moveValue * playerMoveSpeed, jumpValue * playerJumpSpeed, 0);
+        }
+
+        //apply gravity, a = dv/dt
+        moveDirection += Physics.gravity * Time.deltaTime;
+
+        //move
+        player.Move(moveDirection * Time.deltaTime);
     }
 }
