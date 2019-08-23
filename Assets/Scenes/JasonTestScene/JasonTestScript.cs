@@ -13,6 +13,9 @@ public class JasonTestScript : MonoBehaviour
     public float gravityMultiplier = 1;
     public float airbornSpeedChange = 1;
 
+    [Header("Sound")]
+    public AudioSource jumpSound;
+
     private Vector3 moveDirection = Vector3.zero;
 
     public void OnEnable()
@@ -37,6 +40,8 @@ public class JasonTestScript : MonoBehaviour
         if (player.isGrounded)
         {
             moveDirection = new Vector3(moveValue * moveSpeed, jumpValue * jumpSpeed, 0);
+            if ((jumpValue > 0) && (jumpSound != null))
+                jumpSound.Play();
         }
         else //airborn
         {
